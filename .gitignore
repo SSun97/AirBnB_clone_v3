@@ -1,0 +1,9 @@
+*.pyc
+file.json
+.idea
+*.swp
+test_params_create
+main_delete.py
+*~
+my_env
+install_python*
