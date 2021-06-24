@@ -30,7 +30,8 @@ def delete_place(place_id):
     return delete(cls, place_id)
 
 
-@app_views.route("/places", strict_slashes=False, methods=["POST"])
+@app_views.route("/cities/<city_id>/places", strict_slashes=False,
+                 methods=["POST"])
 def post_place():
     """POST /place api route"""
     required_data = {"user_id", "name"}
