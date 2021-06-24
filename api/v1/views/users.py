@@ -31,9 +31,8 @@ def delete_user(user_id):
 @app_views.route("/users", strict_slashes=False, methods=["POST"])
 def post_user():
     """POST /user api route"""
-    required_email = {"email"}
-    required_pwd = {"password"}
-    return post(cls, None, None, required_email, required_pwd)
+    required_data = {"email", "password"}
+    return post(cls, None, None, required_data)
 
 
 @app_views.route("/users/<user_id>", methods=["PUT"])
