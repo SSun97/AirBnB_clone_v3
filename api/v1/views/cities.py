@@ -10,6 +10,7 @@ from models.city import City
 cls = "City"
 parent_cls = "State"
 
+
 @app_views.route("/states/<state_id>/cities", strict_slashes=False,
                  methods=["GET"])
 def get_all_cities(state_id):
@@ -29,7 +30,8 @@ def delete_city(city_id):
     return delete(cls, city_id)
 
 
-@app_views.route("/states/<state_id>/cities", strict_slashes=False, methods=["POST"])
+@app_views.route("/states/<state_id>/cities",
+                 strict_slashes=False, methods=["POST"])
 def post_city(state_id):
     """POST /cities api route"""
     required_data = {"name"}
