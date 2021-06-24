@@ -4,6 +4,16 @@
 from flask import Blueprint, abort, make_response
 
 
+def get_all_cls(parent_cls, parent_cls_id, parent_getter):
+    """GET /cls api route"""
+    parent = storage.get(parent_cls, parent_cls_id)
+    if not parent:
+        return make_response(jsonify({"error": "Not found"}), 404)
+
+    return jsonify([info.to_dict() for info in getattr(parent, parent_getter)])
+
+
+
 def get(cls, cls_id):
     """GET /model api route"""
     obj = storage.get(cls, cls_id)
@@ -49,7 +59,7 @@ def post(cls, parent_cls, parent_cls_id, required_data):
 
 
 def put(cls, cls_id, ignored_data):
-    """PUT /model api route"""
+    """PUT /cls api route"""
     obj = storage.get(cls, cls_id)
     if not obj:
         return make_response(jsonify({"error": "Not found"}), 404)
@@ -67,3 +77,4 @@ def put(cls, cls_id, ignored_data):
 app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
 from api.v1.views.index import *
 from api.v1.views.states import *
+from api.v1.views.cities import *
