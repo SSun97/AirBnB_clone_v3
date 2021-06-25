@@ -38,4 +38,4 @@ def post_amenity():
 def put_amenity(amenity_id):
     """PUT /amenity api route"""
     ignored_data = ["id", "created_at", "updated_at"]
-    return put(cls, amenity_id, ignore_data)
+    return put(cls, amenity_id, ignored_data)
