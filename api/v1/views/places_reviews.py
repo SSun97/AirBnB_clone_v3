@@ -12,7 +12,7 @@ parent_cls = "Place"
 
 @app_views.route("/places/<place_id>/reviews", strict_slashes=False,
                  methods=["GET"])
-def get_all_reviews(place_id):
+def get_reviews(place_id):
     """GET /place/review api route"""
     return get_all_cls(parent_cls, place_id, "reviews")
 
