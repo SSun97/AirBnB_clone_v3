@@ -20,13 +20,13 @@ def get_reviews(place_id):
 @app_views.route("/reviews/<review_id>", methods=["GET"])
 def get_review(review_id):
     """GET /review with ID api route"""
-    return get(model, review_id)
+    return get(cls, review_id)
 
 
 @app_views.route("/reviews/<review_id>", methods=["DELETE"])
 def delete_review(review_id):
     """DELETE /review with ID api route"""
-    return delete(model, review_id)
+    return delete(cls, review_id)
 
 
 @app_views.route("/places/<place_id>/reviews", strict_slashes=False,
