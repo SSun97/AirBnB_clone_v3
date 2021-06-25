@@ -51,6 +51,10 @@ def post(cls, parent_cls, parent_cls_id, required_data):
             message = "Missing " + requirement
             abort(400, message)
 
+    if "user_id" in required_data:
+        if not storage.get("User", data.get("user_id")):
+            return make_response(jsonify({"error": "Not found"}), 404)
+
     if parent_cls:
         data[parent_cls.lower() + '_id'] = parent_cls_id
     obj = classes[cls](**data)
