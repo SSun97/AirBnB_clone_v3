@@ -40,7 +40,7 @@ def post_place(city_id):
     return post(cls, parent_cls, city_id, required_data)
 
 
-@app_views.route("/places/<place_id>", strict_slashes=False, 
+@app_views.route("/places/<place_id>", strict_slashes=False,
                  methods=["PUT"])
 def put_place(place_id):
     """PUT /place api route"""
